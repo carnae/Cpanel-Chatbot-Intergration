@@ -30,9 +30,10 @@ This project is a chat application integration with a cPanel website. The applic
    - Application Entry point as `app`.
 4. Obtain an API key from OpenAI and set it as an environment variable.
 5. Open up the directory created in cPanel File Manager and replace the existing `app.py` file with the one from the repository.
-6. Edit the `app.py` file, and rename the `{model_name_goes_here}` to the model you want to use.
+6. Edit the `app.py` file, and rename the `{model_name_goes_here}` to the model you want to use and the {secret_key_goes_here} to a random key.
 7. Install the requirements (`openai`, `flask`).
-8. Run the web app, and access the application through your web browser at the specified URL.
+8. (optional) you can edit the sys_prompt.txt to preload the chatbot with a system prompt. It's set to a decent one by default, so need to worry otherwise.
+9. Run the web app, and access the application through your web browser at the specified URL.
 
 ## Contributing
 
