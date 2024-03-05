@@ -93,7 +93,7 @@
         <ul id="message-list">
             {% for message in arr[1:] %}
                 {% if message.role == "assistant" %}
-                    <li class="{{ message.role }}-message"><span class="assistant-role">Silver:</span> {{ message.content }}</li>
+                    <li class="{{ message.role }}-message"><span class="assistant-role">Assistant:</span> {{ message.content }}</li>
                 {% else %}
                     <li class="{{ message.role }}-message"><span class="{{ message.role }}-role">{{ message.role.capitalize() }}:</span> {{ message.content }}</li>
                 {% endif %}
