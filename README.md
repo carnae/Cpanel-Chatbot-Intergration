@@ -1,6 +1,6 @@
 # Cpanel-Chatbot-Intergration
 
-This project is a chat application integration with a cPanel website. The application allows users to engage in conversations with the AI assistant, named Silver, to ask questions or seek assistance on various topics.
+This project is a chat application integration with a cPanel website. The application allows users to engage in conversations with a AI assistant, to ask questions or seek assistance on various topics.
 
 ## Features
 
