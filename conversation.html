@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversation</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Set font to Helvetica Neue */
+            font-size: 24px; /* Set the font size to 24px */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Ensure the body takes up the full viewport height */
+            margin: 0; /* Remove default margin */
+        }
+        .conversation-container {
+            width: 70%; /* Set maximum width for conversation container */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .user-message,
+        .assistant-message,
+        input[type="text"],
+        input[type="submit"] {
+            max-width: 100%;
+            width: calc(100% - 25px); /* Set width to 100% minus some margin */
+            margin-top: 10px; /* Add some spacing between elements */
+        }
+        .user-message,
+        .assistant-message {
+            text-align: left;
+            border-radius: 15px;
+            padding: 15px;
+        }
+        .user-message {
+            color: #4CAF50; /* Green */
+            background-color: #f1f8e9; /* Slightly tinted green */
+        }
+        .assistant-message {
+            color: #2196F3; /* Blue */
+            background-color: #e3f2fd; /* Slightly tinted blue */
+        }
+        .user-role,
+        .assistant-role {
+            font-weight: bold;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border-radius: 15px;
+            border: none;
+            background-color: #333; /* Dark grey */
+            color: white;
+            font-size: 24px; /* Set the font size to 24px */
+        }
+        input[type="text"]::placeholder {
+            color: #ddd; /* Light grey */
+        }
+        input[type="submit"] {
+            padding: 15px 30px;
+            border-radius: 10px;
+            border: none;
+            background-color: #00bfff; /* Light blue */
+            color: black;
+            font-size: 24px; /* Set the font size to 24px */
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #add8e6; /* Light blue (hover) */
+        }
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        input[type="text"] {
+            width: calc(70% - 25px); /* Set width to 70% of container width minus margin */
+        }
+        input[type="submit"] {
+            width: calc(30% - 25px); /* Set width to 30% of container width minus margin */
+        }
+    </style>
+</head>
+<body>
+    <div class="conversation-container">
+        <h1>Conversation</h1>
+        <ul id="message-list">
+            {% for message in arr[1:] %}
+                {% if message.role == "assistant" %}
+                    <li class="{{ message.role }}-message"><span class="assistant-role">Silver:</span> {{ message.content }}</li>
+                {% else %}
+                    <li class="{{ message.role }}-message"><span class="{{ message.role }}-role">{{ message.role.capitalize() }}:</span> {{ message.content }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <form method="POST" class="input-container" id="message-form">
+            <input type="text" name="user_input" placeholder="Enter your question here..." autocomplete="off">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        // Scroll to the bottom of the page
+        window.onload = function() {
+            window.scrollTo(0,document.body.scrollHeight);
+        };
+    </script>
+</body>
+</html>
